@@ -1,0 +1,16 @@
+* Virtual Enviroment
+	1 - Install VirtualEnviroment using the command "sudo pip install virtualenvwrapper".
+	2 - Change the bash file adding the follow lines:
+		export WORKON_HOME=$HOME/.virtualenvs
+		export PROJECT_HOME=$HOME/Devel
+		source /usr/local/bin/virtualenvwrapper.sh
+	3 - Create the Virtual Enviroment using the command "mkvirtualenv -p <path_to_python> venv_name"
+	4 - Active the VirtualEnv using the command "workon venv_name"
+* GIT
+	1 - Install Git using the command "sudo apt-get install git-core"
+	2 - Clone the project from GitHub using the command "git clone https://github.com/Jpegx100/ReceitasAppAPI.git"
+* Django and DjangoRestFramework
+	1 - With your VirtualEnviroment started install django and djangoRestFramework using the command "pip install django djangorestframework"
+	2 - Start your local server with the command "python manage.py runserver"
+
+GO TO CODE!
