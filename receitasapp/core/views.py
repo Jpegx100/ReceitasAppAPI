@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from core.serializers import *
+from core.permissions import *
 from rest_framework import generics
-
+from rest_framework.views import APIView
 
 class RecipeList(generics.ListCreateAPIView):
 	queryset = Recipe.objects.all()
@@ -66,3 +67,13 @@ class FeelDetail(generics.RetrieveUpdateDestroyAPIView):
 
 	def perform_update(self, serializer):
 		serializer.save(user=self.request.user)
+
+class UserCreate(generics.CreateAPIView):
+	queryset = User.objects.all()
+	serializer_class = UserSeralizer
+	permission_classes=()
+
+class UserDetail(generics.RetrieveUpdateAPIView):
+	queryset = User.objects.all()
+	serializer_class = UserThinSeralizer
+	permission_classes=(UserHeSelf, )

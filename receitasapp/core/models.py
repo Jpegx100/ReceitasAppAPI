@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from django.contrib.auth.base_user import AbstractBaseUser
 from core.utils import *
 
 class Recipe(models.Model):
@@ -9,6 +8,7 @@ class Recipe(models.Model):
 	how_to_do = models.CharField(max_length=1000)
 	user = models.ForeignKey(User, related_name='recipes')
 	picture = models.ImageField(upload_to='pictures', max_length=254, null=True, blank=True)
+	creation_date = models.DateTimeField(auto_now_add=True)
 
 class IngredientType(models.Model):
 	name = models.CharField(max_length=50, unique=True)
@@ -23,6 +23,7 @@ class Comment(models.Model):
 	text = models.CharField(max_length=200)
 	user = models.ForeignKey(User, related_name='comments')
 	recipe = models.ForeignKey(Recipe, related_name='comments')
+	creation_date = models.DateTimeField(auto_now_add=True)
 
 class Feel(models.Model):
 	value = models.BooleanField()
