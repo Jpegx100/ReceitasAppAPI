@@ -8,6 +8,7 @@ class UserThinSeralizer(serializers.ModelSerializer):
 		model = User
 		fields = ('id', 'username')
 
+
 class UserSeralizer(serializers.ModelSerializer):
 
 	def create(self, validated_data):
@@ -18,7 +19,20 @@ class UserSeralizer(serializers.ModelSerializer):
 
 	class Meta:
 		model = User
-		fields = ('id', 'username', 'password', 'email')
+		fields = ('id', 'username', 'email')
+
+
+class UserCreateSeralizer(serializers.ModelSerializer):
+
+	def create(self, validated_data):
+		user = User.objects.create(**validated_data)
+		user.set_password(validated_data['password'])
+		user.save()
+		return user
+
+	class Meta:
+		model = User
+		fields = ('id', 'username', 'email', 'password')
 
 #----Serializers for IngredientType----
 
