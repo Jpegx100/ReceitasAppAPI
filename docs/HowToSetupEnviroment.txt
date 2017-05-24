@@ -10,7 +10,7 @@
 	1 - Install Git using the command "sudo apt-get install git-core"
 	2 - Clone the project from GitHub using the command "git clone https://github.com/Jpegx100/ReceitasAppAPI.git"
 * Django and DjangoRestFramework
-	1 - With your VirtualEnviroment started install django and djangoRestFramework using the command "pip install django djangorestframework"
+	1 - With your VirtualEnviroment started install django and djangoRestFramework using the command "pip install django djangorestframework coreapi pillow"
 	2 - Start your local server with the command "python manage.py runserver"
 
 GO TO CODE!
